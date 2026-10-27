@@ -162,7 +162,6 @@ function editSkill(index, newName, callback) {
     }, index);
 }
 
-// Remove a skill by its array index.
 function removeSkill(index, callback) {
     if (index < 0 || index >= skills.length) 
     {
