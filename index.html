@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="">Portfolio</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-side-icon navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto" id="navigationMenu"></ul>
+        </div>
+      </div>
+    </nav>
+    <header id="about" class="bg-dark bg-gradient text-white text-center py-5 mb-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <h1 class="display-5 fw-bold mb-1">Jairo Lucio Camargo</h1>
+            <p class="lead mb-1">Future Video Game Designer</p>
+            <div id="greeting"></div>
+            <p class="mb-4">
+              I am a budding video game designer who is beginning their journey into
+              the professional world.
+            </p>
+            <a href="Jairo L. C. Resume.pdf" id="resumeDownload" download="Jairo_L_C_Resume" class="btn btn-danger btn-md shadow-sm">Download Resume</a>
+            <p class="mt-3 mb-0">Resume download clicks: <span id="downloadCount" aria-live="polite">0</span>
+          </p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="container mb-4">
+      <div class="row justify-content-center">
+      </div>
+      <section id="skills" class="mb-5">
+        <form id="form_Skill" class="card card-body mb-4" novalidate>
+        <label for="name" class="form-label">Enter a skill:</label>
+        <div class="input-group">
+          <input type="text" name="Skill" id="name" class="form-control" placeholder="e.g. Participation" required/>
+          <button type="submit" class="btn btn-danger">Add Skill</button>
+        </div>
+        <p id="skillError" class="text-danger small mt-2 mb-0" role="alert"></p>
+        </form>
+        <h2 class="text-center fw-bold mb-4">Skills</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="card h-100 text-center border-0 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title fw-bold text-danger">Software and Hardware</h5>
+                <p class="card-text">
+                  Brother Printers, MacOS, Linux, JavaScript, Adobe Photoshop, Adobe Illustrator
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card h-100 text-center border-0 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title fw-bold text-danger">Soft Skills</h5>
+                <p class="card-text">
+                  Communication, Critical Thinking, Adaptability, Reliability, Active Learning, Enthusiasm, Integrity, Professionalism
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+          <div class="card h-100 border-0 shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title fw-bold text-danger text-center">
+                Additional Skills
+              </h5>
+              <ul id="additionalSkills" class="mb-0"></ul>
+              <p id="emptySkillsMessage" class="text-muted text-center mb-0">
+                Skills you add will appear here.
+              </p>
+            </div>
+          </div>
+        </div>
+        </div>
+      </section>
+      <!-- Projects -->
+      <section id="projects" class="mb-5">
+        <h2 class="text-center fw-bold mb-4">Projects</h2>
+        <div class="d-flex justify-content-end mb-3">
+            <label for="projectSort" class="me-2 align-self-center">
+              Sort by deadline:
+            </label>
+          <select id="projectSort" class="form-select w-auto">
+            <option value="ascending">Earliest first</option>
+            <option value="descending">Latest first</option>
+          </select>
+        </div>
+        <div id="projectList" class="row g-4 justify-content-center"></div>
+        <p class="text-center mt-4">
+          Days until Project Fireplace deadline:
+          <span id="timer"></span>
+        </p>
+      </section>
+      <section id="experience" class="mb-5">
+        <h2 class="fw-bold text-center mb-4">Experience &amp; Education</h2>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <h3 class="h4 text-center mb-3">Work Experience</h3>
+            <div id="experienceTable" class="table-responsive shadow-sm rounded"></div>
+          </div>
+          <div class="col-lg-6">
+            <h3 class="h4 text-center mb-3">Education</h3>
+            <div id="educationTable" class="table-responsive shadow-sm rounded"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-dark bg-gradient text-white text-center py-4">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <p class="mb-1">Contact: 
+              Phone: <a href="tel:4802280659">480-228-0659 </a>
+              Email: <a href="mailto:jairolucio115@gmail.com">jairolucio115@gmail.com</a>
+              Github: <a href="https://github.com/jl4699">jl4699</a></p>
+            <small class="text-muted">Built with Bootstrap 5</small>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
